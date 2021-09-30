@@ -1,0 +1,76 @@
+.textarea-divider {
+  @include Align($direction: row, $justify: space);
+  width: 100%;
+}
+.textarea-block {
+  @include Align($direction: row);
+  padding: 1rem;
+  margin: 1rem 0;
+  position: relative;
+  width: calc(90% - 2rem) !important;
+  height: 10rem !important;
+  border-radius: 0.8rem;
+  background-color: darken($color: $background, $amount: 5) !important;
+
+  h3 {
+    position: absolute;
+  }
+
+  label {
+    position: absolute;
+    color: $black2;
+    font-size: 1.4rem;
+    margin-top: 6rem;
+    font-weight: bold;
+  }
+
+  &.error {
+    svg {
+      color: $red;
+    }
+    .vertical-line {
+      background-color: $red;
+    }
+    textarea {
+      color: $red;
+    }
+    &::after {
+      width: 92%;
+      background-color: $red;
+    }
+  }
+
+  .vertical-line {
+    height: 2.4rem;
+    width: 0.2rem;
+    padding: 0;
+    background-color: $black2;
+    transition: 0.5s;
+  }
+  textarea {
+    width: 100%;
+    font-size: 1.2rem;
+    border-radius: 0 0.8rem 0.8rem 0;
+    padding: 0 1rem 0 1.5rem;
+    background-color: transparent;
+    transition: 0.5s;
+    resize: none;
+    height: calc(10rem - 2rem) !important;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -0.1rem;
+    left: 2%;
+    width: 0;
+    transition: 0.8s !important;
+    height: 0.2rem;
+    background-color: $green !important;
+  }
+  &:hover::after {
+    width: 96% !important;
+  }
+  &:focus-within::after {
+    width: 96% !important;
+  }
+}

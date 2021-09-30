@@ -1,0 +1,55 @@
+@mixin Align(
+  $display: flex,
+  $justify: center,
+  $align: center,
+  $direction: column,
+  $rows: 1fr,
+  $columns: 1fr,
+  $gap: 0,
+  $text: center
+) {
+  @if $display==grid {
+    display: grid;
+    grid-template-rows: $rows;
+    grid-template-columns: $columns;
+    grid-gap: $gap;
+  } @else if $display==block {
+    display: block;
+  } @else {
+    display: flex;
+  }
+
+  @if $justify==start {
+    justify-content: flex-start;
+  } @else if $justify==end {
+    justify-content: flex-end;
+  } @else if $justify==space {
+    justify-content: space-between;
+  } @else {
+    justify-content: center;
+  }
+
+  @if $align==start {
+    align-items: flex-start;
+  } @else if $align==end {
+    align-items: flex-end;
+  } @else {
+    align-items: center;
+  }
+
+  @if $direction==column {
+    flex-direction: column;
+  } @else if $direction==row {
+    flex-direction: row;
+  }
+
+  @if $text==start {
+    text-align: start;
+  } @else if $text==end {
+    text-align: end;
+  } @else if $text==justify {
+    text-align: justify;
+  } @else if $text==center {
+    text-align: center;
+  }
+}

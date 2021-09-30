@@ -1,0 +1,62 @@
+#nivel.input-block {
+  width: 30rem;
+  svg {
+    width: 1.4rem;
+  }
+}
+#cargo {
+  svg {
+    width: 1.4rem;
+  }
+}
+
+.input-block {
+  @include Align($direction: row);
+  padding: 0;
+  margin: 1rem 0;
+  position: relative;
+  width: 70%;
+  height: 4rem;
+  background-color: lighten($color: $background, $amount: 5);
+
+  &.error {
+    svg {
+      color: $red;
+    }
+    .vertical-line {
+      background-color: $red;
+    }
+    input {
+      color: $red;
+    }
+    &::after {
+      width: 92%;
+      background-color: $red;
+    }
+  }
+
+  select {
+    height: 4rem;
+    width: 100%;
+    font-size: 1.2rem;
+    border-radius: 0 0.8rem 0.8rem 0;
+    padding: 0 1rem 0 0.5rem;
+    transition: 0.5s;
+    background-color: darken($color: $background, $amount: 5);
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -0.1rem;
+    width: 0;
+    transition: 0.5s;
+    height: 0.2rem;
+    background-color: $black2;
+  }
+  &:hover::after {
+    width: 92%;
+  }
+  &:focus-within::after {
+    width: 92%;
+  }
+}
